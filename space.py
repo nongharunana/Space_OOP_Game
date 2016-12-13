@@ -1,5 +1,5 @@
 import arcade
-from models import World, Ship
+from models import World, Ship,Gold
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 600
 class ModelSprite(arcade.Sprite):
