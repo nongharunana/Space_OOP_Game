@@ -12,7 +12,6 @@ class ModelSprite(arcade.Sprite):
         if self.model:
             self.set_position(self.model.x, self.model.y)
             self.angle = self.model.angle
-
     def draw(self):
         self.sync_with_model()
         super().draw()

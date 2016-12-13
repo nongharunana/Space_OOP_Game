@@ -24,7 +24,6 @@ class Ship(Model):
             self.direction = Ship.DIR_HORIZONTAL
             self.angle = -90
 
-
     def animate(self, delta):
         if self.direction == Ship.DIR_VERTICAL:
             if self.y > self.world.height:
@@ -40,15 +39,19 @@ class World:
         self.height = height
         self.gold = Gold(self,400,400)
         self.ship = Ship(self,100, 100)
-
+        self.score = 0
 
     def animate(self, delta):
         self.ship.animate(delta)
         if self.ship.hit(self.gold, 15):
             self.gold.random_location()
+            self.score += 1
     def on_key_press(self, key, key_modifiers):
-        if key == arcade.key.SPACE:
+        if key == arcade.key.RIGHT:
             self.ship.switch_direction()
+        if key == arcade.key.LEFT:
+            self.ship.switch_direction()
+
 
 class Gold(Model):
     def __init__(self, world, x, y):
